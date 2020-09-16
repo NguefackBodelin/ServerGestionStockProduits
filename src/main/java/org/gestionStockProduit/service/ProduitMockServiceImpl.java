@@ -3,10 +3,12 @@ package org.gestionStockProduit.service;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.gestionStockProduit.entity.entuty.Produit;
+import org.gestionStockProduit.entity.Produit;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 @Service
+@Component("produitMockServiceImpl")
 public class ProduitMockServiceImpl implements IproduitService{
 
 	private List<Produit> produits;
@@ -48,9 +50,9 @@ public class ProduitMockServiceImpl implements IproduitService{
 	}
 
 	@Override
-	public void deleteProduit(String ref) {
+	public void deleteProduit(Long id) {
 		Produit prod =new Produit();
-		prod.setRef(ref);
+		prod.setId(id);
 		for(Produit produit:produits) {
 			if(prod.equals( produit)) {
 				produits.remove(produit);

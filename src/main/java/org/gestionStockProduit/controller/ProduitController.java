@@ -2,9 +2,10 @@ package org.gestionStockProduit.controller;
 
 import java.util.List;
 
-import org.gestionStockProduit.entity.entuty.Produit;
+import org.gestionStockProduit.entity.Produit;
 import org.gestionStockProduit.service.IproduitService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,6 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class ProduitController {
 
 	@Autowired
+	@Qualifier("produitService")
 	private IproduitService produitService; 
 	
 	@GetMapping
@@ -38,8 +40,8 @@ public class ProduitController {
 		produitService.updateProduit(produit);;
 	}
 	
-	@DeleteMapping("/{ref}")
-	public void deleteProduit(@PathVariable String ref) {
-		produitService.deleteProduit(ref);
+	@DeleteMapping("/{id}")
+	public void deleteProduit(@PathVariable Long id) {
+		produitService.deleteProduit(id);
 	}
 }

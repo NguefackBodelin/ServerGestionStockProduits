@@ -2,7 +2,7 @@ package org.gestionStockProduit.service;
 
 import java.util.List;
 
-import org.gestionStockProduit.entity.entuty.Produit;
+import org.gestionStockProduit.entity.Produit;
 
 public interface IproduitService {
 	
@@ -12,6 +12,6 @@ public interface IproduitService {
 	
 	void updateProduit(Produit produit);
 	
-	void deleteProduit(String ref);
+	void deleteProduit(Long id);
 
 }
